@@ -2,7 +2,7 @@
 Refactor the shopping cart to be proficient in the use of the React.js framework
 
 ### Skills
-- React Use framework to improve development efficiency
+- Use React to improve development efficiency
 - Tailwind Utility type CSS framework
 ## How to start the project
 ### 1. Node.js and npm need to be installed on this machine
