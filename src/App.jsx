@@ -5,7 +5,6 @@ import Step2 from './ components/Step2/Step2';
 import Step3 from './ components/Step3/Step3';
 import ProgressControl from './ components/ProgressControl/ProgressControl';
 import Cart from './ components/Cart/Cart';
-import LineItem from './ components/LineItem/LineItem';
 
 const App = () => (
   <div className="flex flex-col p-4">
