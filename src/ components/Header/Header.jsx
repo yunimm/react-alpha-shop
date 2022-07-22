@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Header = () => (
-  <ul className="flex bg-gray-600 p-6 gap-6">
+  <ul className="flex p-6 gap-6">
     <li>男款</li>
     <li>女款</li>
     <li>最新消息</li>

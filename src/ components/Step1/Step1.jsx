@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Step1 = () => (
-  <div className="w-1/2 bg-gray-200 p-6">
+  <div className="w-1/2 p-6">
     <h2 className="text-2xl mb-8">寄送地址</h2>
-    <div className="container w-full border flex flex-col gap-5">
+    <div className="container w-full flex flex-col gap-5">
       <div className="flex gap-3">
-        <div className="flex flex-col w-1/4 border">
+        <div className="flex flex-col w-1/4 ">
           <span>稱謂</span>
           <select name="mySelect" className="rounded">
             <option value="default">請選擇</option>
@@ -14,7 +14,7 @@ const Step1 = () => (
             <option value="other">其他</option>
           </select>
         </div>
-        <div className="flex flex-col  w-3/4">
+        <div className="flex flex-col w-3/4">
           <span>姓名</span>
           <input
             type="text"
@@ -24,7 +24,7 @@ const Step1 = () => (
         </div>
       </div>
       <div className="flex gap-3">
-        <div className="flex flex-col w-1/2 border">
+        <div className="flex flex-col w-1/2 ">
           <span>電話</span>
           <input
             type="number"
@@ -42,7 +42,7 @@ const Step1 = () => (
         </div>
       </div>
       <div className="flex gap-3">
-        <div className="flex flex-col w-1/4 border">
+        <div className="flex flex-col w-1/4 ">
           <span>縣市</span>
           <select name="mySelect" className="rounded">
             <option value="default">請選擇縣市</option>

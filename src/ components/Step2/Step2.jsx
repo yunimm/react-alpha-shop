@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Step2 = () => (
-  <div className="w-1/2 bg-gray-200 p-6">
+  <div className="w-1/2 p-6">
     <h2 className="text-2xl mb-8">運送方式</h2>
     <div className="container w-full flex flex-col gap-5">
       <ul className="flex flex-col gap-8">
-        <li className="border rounded flex gap-6 p-2 px-4 items-center">
+        <li className="rounded flex gap-6 p-2 px-4 items-center">
           <input type="radio" />
           <div className="flex-1">
             <div className="flex flex-col">
@@ -15,7 +15,7 @@ const Step2 = () => (
           </div>
           <span>免費</span>
         </li>
-        <li className="border rounded flex gap-6 p-2 px-4 items-center">
+        <li className="rounded flex gap-6 p-2 px-4 items-center">
           <input type="radio" />
           <div className="flex-1">
             <div className="flex flex-col">

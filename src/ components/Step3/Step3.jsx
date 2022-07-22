@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Step3 = () => (
-  <div className="w-1/2 bg-gray-200 p-6">
+  <div className="w-1/2 p-6">
     <h2 className="text-2xl mb-8">寄送地址</h2>
-    <div className="container w-full border flex flex-col gap-5">
+    <div className="container w-full flex flex-col gap-5">
       <div className="flex gap-3">
         <div className="flex flex-col w-3/4">
           <span>持卡人姓名</span>
@@ -15,7 +15,7 @@ const Step3 = () => (
         </div>
       </div>
       <div className="flex gap-3">
-        <div className="flex flex-col w-3/4 border">
+        <div className="flex flex-col w-3/4">
           <span>卡號</span>
           <input
             type="number"
