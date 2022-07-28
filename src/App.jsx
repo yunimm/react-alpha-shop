@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './ components/Header/Header';
 import StepProgress from './ components/StepProgress/StepProgress';
 import Step1 from './ components/Step1/Step1';
@@ -15,7 +15,6 @@ const App = () => {
   const atNextBtn = () => {
     if (step < 3) setStep((prev) => prev + 1);
   };
-
   return (
     <div className="flex flex-col p-4">
       <Header />

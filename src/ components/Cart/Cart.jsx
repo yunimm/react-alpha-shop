@@ -22,4 +22,4 @@ const Cart = () => (
   </div>
 );
 
-export default Cart;
+export default React.memo(Cart);

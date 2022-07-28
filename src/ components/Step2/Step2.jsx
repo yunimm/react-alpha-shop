@@ -30,4 +30,4 @@ const Step2 = () => (
   </div>
 );
 
-export default Step2;
+export default React.memo(Step2);

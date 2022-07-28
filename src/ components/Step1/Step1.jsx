@@ -64,4 +64,4 @@ const Step1 = () => (
   </div>
 );
 
-export default Step1;
+export default React.memo(Step1);

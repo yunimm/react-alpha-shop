@@ -10,4 +10,4 @@ const Header = () => (
   </ul>
 );
 
-export default Header;
+export default React.memo(Header);
