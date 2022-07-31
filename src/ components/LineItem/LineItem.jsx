@@ -1,13 +1,6 @@
-import { useState, useEffect, memo } from 'react';
+import { useState, memo } from 'react';
 
 const LineItem = () => {
-  // fetch('../src/json/lineItem.json')
-  //   .then((res) => {
-  //     console.log(res.json());
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
   const itemData = [
     {
       id: '1',
@@ -27,15 +20,15 @@ const LineItem = () => {
   const [data, setData] = useState(itemData);
 
   const list = data.map((item) => (
-    <li className="p-4 rounded" key={item.id}>
+    <li className="rounded p-4" key={item.id}>
       <div className="flex gap-4">
         <img className="w-24" src={item.img} alt={item.name} />
-        <div className="flex flex-col flex-1 justify-between">
+        <div className="flex flex-1 flex-col justify-between">
           <div className="flex justify-between">
             <span>{item.name}</span>
             <span>{item.price}</span>
           </div>
-          <div className="flex gap-24 items-end">
+          <div className="flex items-end gap-24">
             <button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +62,7 @@ const LineItem = () => {
                 />
               </svg>
             </button>
-            <button className="border rounded-xl px-4">REMOVE</button>
+            <button className="rounded-xl border px-4">REMOVE</button>
           </div>
         </div>
       </div>
