@@ -1,24 +1,8 @@
-import { useState, memo } from 'react';
+import { memo, useContext } from 'react';
+import { CartContext } from '../../contexts/CartContext';
 
 const LineItem = () => {
-  const itemData = [
-    {
-      id: '1',
-      name: '貓咪罐罐',
-      img: 'https://picsum.photos/300/300?text=1',
-      price: 100,
-      quantity: 2,
-    },
-    {
-      id: '2',
-      name: '貓咪干干',
-      img: 'https://picsum.photos/300/300?text=2',
-      price: 200,
-      quantity: 1,
-    },
-  ];
-  const [data, setData] = useState(itemData);
-
+  const { data, atUpdateQuantity, atDecreaseQuantity } = useContext(CartContext);
   const list = data.map((item) => (
     <li className="rounded p-4" key={item.id}>
       <div className="flex gap-4">
@@ -29,7 +13,7 @@ const LineItem = () => {
             <span>{item.price}</span>
           </div>
           <div className="flex items-end gap-24">
-            <button>
+            <button onClick={() => atUpdateQuantity(item.id)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -46,7 +30,7 @@ const LineItem = () => {
               </svg>
             </button>
             <span>{item.quantity}</span>
-            <button>
+            <button onClick={() => atDecreaseQuantity(item.id)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
