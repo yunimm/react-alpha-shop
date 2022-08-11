@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo } from 'react';
 import Header from './ components/Header/Header';
 import StepProgress from './ components/StepProgress/StepProgress';
 import Step1 from './ components/Step1/Step1';
@@ -7,26 +7,11 @@ import Step3 from './ components/Step3/Step3';
 // import ProgressControl from './ components/ProgressControl/ProgressControl';
 import Cart from './ components/Cart/Cart';
 import { CartContext } from './contexts/CartContext';
+import useShoppingCart from './hooks/useShoppingCart';
 
 const App = () => {
-  const itemData = [
-    {
-      id: '1',
-      name: '貓咪罐罐',
-      img: 'https://picsum.photos/300/300?text=1',
-      price: 100,
-      quantity: 2,
-    },
-    {
-      id: '2',
-      name: '貓咪干干',
-      img: 'https://picsum.photos/300/300?text=2',
-      price: 200,
-      quantity: 1,
-    },
-  ];
   const [step, setStep] = useState(1);
-  const [data, setData] = useState(itemData);
+  const [state, dispatch] = useShoppingCart();
   const atPrevBtn = () => {
     if (step > 1) setStep((prev) => prev - 1);
   };
@@ -34,50 +19,14 @@ const App = () => {
     if (step < 3) setStep((prev) => prev + 1);
   };
 
-  const atUpdateQuantity = useCallback((id: string) => {
-    // 使用更新購物車商品資料function，以map方式對陣列資料進行加工並回傳新陣列
-    // eslint-disable-next-line arrow-body-style
-    setData((prev) => {
-      return prev.map((item) => {
-        if (item.id === id) {
-          return {
-            id: item.id,
-            name: item.name,
-            img: item.img,
-            price: item.price,
-            quantity: item.quantity + 1,
-          };
-        }
-        return item;
-      });
-    });
-  }, []);
-  const atDecreaseQuantity = useCallback((id: string) => {
-    // 使用更新購物車商品資料function，以map方式對陣列資料進行加工並回傳新陣列
-    // eslint-disable-next-line arrow-body-style
-    setData((prev) => {
-      return prev.map((item) => {
-        if (item.id === id) {
-          return {
-            id: item.id,
-            name: item.name,
-            img: item.img,
-            price: item.price,
-            quantity: item.quantity > 0 ? item.quantity - 1 : item.quantity,
-          };
-        }
-        return item;
-      });
-    });
-  }, []);
-  const providerValue = useMemo(() => ({
-    step,
-    setStep,
-    data,
-    setData,
-    atUpdateQuantity,
-    atDecreaseQuantity,
-  }));
+  const providerValue = useMemo(
+    () => ({
+      state,
+      dispatch,
+      step,
+    }),
+    [state, dispatch, step],
+  );
   return (
     <div className="flex flex-col p-4">
       <Header />

@@ -1,9 +1,21 @@
-import { memo, useContext } from 'react';
+import { memo, useContext, useCallback } from 'react';
 import { CartContext } from '../../contexts/CartContext';
+import {
+  actionUpdateQuantity,
+} from '../../hooks/action';
 
 const LineItem = () => {
-  const { data, atUpdateQuantity, atDecreaseQuantity } = useContext(CartContext);
-  const list = data.map((item) => (
+  const { state, dispatch } = useContext(CartContext);
+  const { lineItems } = state;
+
+  const atUpdateQuantity = useCallback(
+    (ItemId, num) => {
+      dispatch(actionUpdateQuantity(ItemId, num));
+    },
+    [dispatch],
+  );
+
+  const list = lineItems.map((item) => (
     <li className="rounded p-4" key={item.id}>
       <div className="flex gap-4">
         <img className="w-24" src={item.img} alt={item.name} />
@@ -13,7 +25,7 @@ const LineItem = () => {
             <span>{item.price}</span>
           </div>
           <div className="flex items-end gap-24">
-            <button onClick={() => atUpdateQuantity(item.id)}>
+            <button onClick={() => atUpdateQuantity(item.id, 1)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -30,7 +42,7 @@ const LineItem = () => {
               </svg>
             </button>
             <span>{item.quantity}</span>
-            <button onClick={() => atDecreaseQuantity(item.id)}>
+            <button onClick={() => atUpdateQuantity(item.id, -1)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
