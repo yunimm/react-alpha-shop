@@ -3,7 +3,7 @@ export const actionUpdateQuantity = (id, num) => ({
   payload: { id, num },
 });
 
-export const actionDecreaseQuantity = (id) => ({
-  type: 'DECREASE_QUANTITY',
-  payload: id,
+export const actionUpdateShipPrice = (selected) => ({
+  type: 'UPDATE_SHIP_PRICE',
+  payload: selected,
 });
